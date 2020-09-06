@@ -1,24 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <nav className="navbar navbar-light bg-light">
+        <span className="navbar-brand mb-0 h1 text-primary">Teller</span>
+      </nav>
+      <form>
+        <div class="form-group row">
+          <label for="amountInput" class="col-sm-2 mb-2 col-form-label">
+            amount
+          </label>
+          <div class="col-sm-5">
+            <input
+              type="number"
+              class="form-control"
+              id="amountInput"
+              placeholder="amount"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="fromCountry" class="col-sm-2 mb-2 col-form-label">
+            from country
+          </label>
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="fromCountry"
+              placeholder="from country"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="toCountry" class="col-sm-2 col-form-label">
+            to country
+          </label>
+          <div class="col-sm-5">
+            <input
+              type="text"
+              class="form-control"
+              id="toCountry"
+              placeholder="to country"
+            />
+          </div>
+        </div>
+      </form>
     </div>
   );
 }
