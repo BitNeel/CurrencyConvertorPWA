@@ -10,5 +10,22 @@ async function getCountries(){
     });
     return data;
 }
-
-export {getCountries};
+async function getExchangeAmount(pair){
+    let URL=process.env.REACT_APP_API_URL+"/convert";
+    let apiKey = process.env.REACT_APP_API_KEY;
+    try{
+        let {data} = await axios.get(URL,{
+            params:{
+                q:pair,
+                apiKey:apiKey,
+                compact:'ultra'
+            }
+        })
+        return data;
+    }
+    catch(e){
+        console.log(e);
+    }
+    
+}
+export {getCountries,getExchangeAmount};
