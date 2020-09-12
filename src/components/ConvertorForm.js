@@ -2,7 +2,7 @@ import React,{useState} from "react";
 import {getExchangeAmount} from '../api';
 
 export default function ConvertorForm({countryList}) {
-  const [fromCountry,setFromCountry]=useState('USD');
+  const [fromCountry,setFromCountry]=useState('INR');
   const [toCountry,setToCountry] = useState('');
   const [fromAmt,setFromAmt] = useState(1);
   const [toAmt,setToAmt] = useState(1);
@@ -28,12 +28,12 @@ export default function ConvertorForm({countryList}) {
     let exchange = await getExchangeAmount(e.target.value+"_"+toCountry);
     let [exchangeRate] = Object.values(exchange)
     setExRate(exchangeRate);
-    checkChange(exchangeRate);
-      console.log(exchange)
+    if(exchangeRate!==undefined)
+      checkChange(exchangeRate);
   }
   const handleToAmtChange = async (e)=>{
     setToAmt(e.target.value);
-    if(exRate!==null)
+    if(exRate!=="")
     {
       let famount = e.target.value/exRate;
       let fresult = Math.round(famount*100)/100;
@@ -49,9 +49,9 @@ export default function ConvertorForm({countryList}) {
     }
   }
 
-  let options = Object.keys(countryList).map((ccod, index) => {
+  let options = Object.keys(countryList).sort().map((ccod, index) => {
     return (
-      <option value={countryList[ccod].currencyId} key={index}>
+      <option value={ccod} key={index}>
         {countryList[ccod].currencyName}
       </option>
     );
