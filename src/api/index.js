@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function getCountries(){
+async function getCurrencies(){
     let URL = process.env.REACT_APP_API_URL+"/currencies"
     let apiKey = process.env.REACT_APP_API_KEY;
     let {data} = await axios.get(URL,{
@@ -28,4 +28,19 @@ async function getExchangeAmount(pair){
     }
     
 }
-export {getCountries,getExchangeAmount};
+async function getCountries(){
+    const URL = process.env.REACT_APP_API_URL+"/countries";
+    const apiKey = process.env.REACT_APP_API_KEY;
+    try{
+        let {data} = await axios.get(URL,{
+            params:{
+                apiKey:apiKey
+            }
+        });
+        return data;
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+export {getCurrencies,getExchangeAmount,getCountries};

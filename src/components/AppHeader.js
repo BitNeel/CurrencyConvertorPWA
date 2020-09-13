@@ -1,6 +1,24 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import templates from '../template.json';
-export default function AppHeader() {
+export default function AppHeader({setToggle}) {
+    const changePage=(e)=>{
+        let target = e.target.id;
+        let index = parseInt(target.match(/(\d+)/)[0]);
+        setToggle(index);
+    }
+    useEffect(() => {
+        let firstActiveNode = document.getElementsByClassName("navItemSpan")[0];
+        firstActiveNode.classList.add("navActive")
+
+        return () => {
+            let nodes = document.getElementsByClassName("navItemSpan");
+            for(let i=0;i < nodes.length;i++)
+            {
+                nodes[i].classList.remove("navActive");
+                nodes[i].classList.remove("navHover");
+            }
+        }
+    }, [])
     const addEnterClass=e=>{
         let targetNode = document.getElementById(e.target.id);
         targetNode.classList.add("navHover")
@@ -32,6 +50,7 @@ export default function AppHeader() {
                 onMouseEnter={addEnterClass}
                 onMouseLeave={removeEnterClass}
                 onClickCapture={addActiveClass}
+                onClick={changePage}
               >
                 {link}
               </span>
