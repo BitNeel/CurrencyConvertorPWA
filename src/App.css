@@ -1,0 +1,10 @@
+#navList>li>span{
+    cursor: pointer;
+}
+
+.navHover{
+    border-bottom: 4px solid #ffff4f;
+}
+.navActive{
+    border-bottom: 4px solid #457ef0;
+}

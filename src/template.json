@@ -1,3 +1,7 @@
 {
-    "AppHeader":"Global Currency Helper"
+    "AppHeader":"Global Currency Helper",
+    "NavLinks":[
+        "Convertor",
+        "Currency List"
+    ]
 }
