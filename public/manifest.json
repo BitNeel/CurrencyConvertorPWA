@@ -3,8 +3,14 @@
   "name": "Global Currency Helper",
   "icons": [
     {
-      "src": "logo_small.png",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src":"images/GCHmaskable.png",
+      "sizes":"1203x1203",
+      "type":"image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo_small.png",
+      "sizes": "64x64",
       "type": "image/png"
     },
     {
