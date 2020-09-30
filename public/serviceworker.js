@@ -1,9 +1,7 @@
 const CACHE_NAME = "version4";
 const urlsToCache = [
   "index.html",
-  "offline.html",
-  '/static/js/',
-  '/static/css/'
+  "offline.html"
 ];
 const self = this;
 //installatin sw
