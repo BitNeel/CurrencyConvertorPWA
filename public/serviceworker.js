@@ -34,9 +34,7 @@ self.addEventListener('fetch',(event)=>{
                                 }).catch(err=>{
                                     console.log(err)
                                 })
-                    }).catch(err=>{
-                        return caches.match('offline.html')
-                    })
+                    }).catch(()=> caches.match('offline.html'))
                     
                 })
     )
