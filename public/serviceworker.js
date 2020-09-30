@@ -1,5 +1,13 @@
 const CACHE_NAME = "version2";
-const urlsToCache=['index.html','offline.html'];
+const urlsToCache = [
+  "index.html",
+  "offline.html",
+  "https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css",
+  "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js",
+  "https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js",
+  "/static/js",
+  "/static/css"
+];
 const self = this;
 //installatin sw
 self.addEventListener('install', (event)=>{
@@ -15,9 +23,17 @@ self.addEventListener('install', (event)=>{
 self.addEventListener('fetch',(event)=>{
     event.respondWith(
         caches.match(event.request)
-            .then(()=>{
-                return fetch(event.request)
-                        .catch(()=> caches.match('offline.html'))
+            .then(async (res)=>{
+                try {
+                    if(res){
+                        return res;
+                    }
+                    else{
+                        return fetch(event.request);
+                    }
+                } catch (e) {
+                    return await caches.match('offline.html');
+                }
             })
     )
 })
