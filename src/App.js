@@ -22,7 +22,7 @@ function App() {
     <React.Fragment>
     <AppHeader setToggle={setToggle}/>
     {
-      toggle===0?<ConvertorForm countryList={countryList}/>:
+      !toggle?<ConvertorForm countryList={countryList}/>:
       <CurrencyList/>
     }
     </React.Fragment>

@@ -15,4 +15,5 @@ const convrateCache={
 }
 workbox.precaching.precacheAndRoute(precacheManifest);
 workbox.routing.registerRoute(/.*countries/,new workbox.strategies.CacheFirst(countryConfig),'GET');
+workbox.routing.registerRoute(/.*currencies/,new workbox.strategies.NetworkFirst(countryConfig),'GET');
 workbox.routing.registerRoute(/.*convert\?\w+/,new workbox.strategies.StaleWhileRevalidate(convrateCache),'GET');
