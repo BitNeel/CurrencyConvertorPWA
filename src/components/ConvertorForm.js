@@ -25,11 +25,13 @@ export default function ConvertorForm({countryList}) {
   }
   const handleFromCountryChange = async (e)=>{
     setFromCountry(e.target.value);
-    let exchange = await getExchangeAmount(e.target.value+"_"+toCountry);
+    if(toCountry!==""){
+      let exchange = await getExchangeAmount(e.target.value+"_"+toCountry);
     let [exchangeRate] = Object.values(exchange)
     setExRate(exchangeRate);
     if(exchangeRate!==undefined)
       checkChange(exchangeRate);
+    }
   }
   const handleToAmtChange = async (e)=>{
     setToAmt(e.target.value);
