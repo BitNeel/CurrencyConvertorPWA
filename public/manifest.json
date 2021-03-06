@@ -3,25 +3,27 @@
   "name": "Global Currency Helper",
   "icons": [
     {
-      "src":"images/GCHmaskable.png",
-      "sizes":"1203x1203",
-      "type":"image/png",
+      "src": "manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "images/GCHmaskable.png",
+      "sizes": "1203x1203",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
       "src": "images/logo_small.png",
       "sizes": "64x64",
       "type": "image/png"
-    },
-    {
-      "src": "images/logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "images/logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",
