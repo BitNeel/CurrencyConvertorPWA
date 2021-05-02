@@ -64,18 +64,18 @@ export default function ConvertorForm({countryList}) {
       <div className="input-group mb-3 mt-3">
         <input type="number" className="form-control mr-2" name="fromField" 
         value={fromAmt} onChange={ handleFromAmtChange }/>
-        <select name="selectFrom" id="fromsel" className="col-3" 
-        onChange={ handleFromCountryChange} value={fromCountry}>
+        <input className='form-control' list='fromsel' onChange={ handleFromCountryChange} value={fromCountry}></input>
+        <datalist name="selectFrom" id="fromsel" className="col-3">
             {options}
-        </select>
+        </datalist>
       </div>
       <div className="input-group mb-3">
         <input type="number" className="form-control mr-2" name="toField" 
         value={toAmt} onChange={ handleToAmtChange }/>
-        <select name="selectTo" id="tosel" className="col-3" 
-        onChange={ handleToCountryChange } value={toCountry}>
+        <input className='form-control' list='tosel' onChange={ handleToCountryChange } value={toCountry}></input>
+        <datalist name="selectTo" id="tosel" className="col-3">
             {options}
-        </select>
+        </datalist>
       </div>
     </div>
   );
